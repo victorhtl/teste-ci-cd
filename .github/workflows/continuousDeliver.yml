@@ -1,0 +1,20 @@
+---
+name: Continuous Deliver
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Simulating CD
+        uses: actions/upload-artifact@v4
+        with:
+          name: project.zip
+          path: |
+            '**.js'
