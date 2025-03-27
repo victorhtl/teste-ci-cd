@@ -16,5 +16,15 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: project.zip
-          path: |
-            '**.js'
+          path: main.js
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: deliver
+    steps: 
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: project.zip
+      - name: Display structure of downloaded files
+        run: ls -R
