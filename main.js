@@ -1,5 +1,16 @@
-console.log('hello world')
+import Fastify from 'fastify'
 
-console.log('new commit para deliver')
+const fastify = Fastify({
+  logger: true
+})
 
-console.log('new commit for deploy')
+fastify.get('/', function (request, reply) {
+  reply.send({ hello: 'world' })
+})
+
+fastify.listen({ port: 3333 }, function (err, address) {
+  if (err) {
+    fastify.log.error(err)
+    process.exit(1)
+  }
+})
