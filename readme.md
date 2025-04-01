@@ -1,0 +1,7 @@
+- Ubuntu 24.04
+- build:
+- $ `docker build -t fastify-app .`
+- run:
+- $ `docker run -p 3333:3333 fastify-app`
+- test:
+- localhost:3333
