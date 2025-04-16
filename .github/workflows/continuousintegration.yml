@@ -15,16 +15,3 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-  discord:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Send Discord Message
-        uses: ehsanfox/discord.js-webhook
-        with:
-          # Important/Required Data
-          id: ${{ secrets.DISCORD_WEBHOOK_ID }}
-          token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
