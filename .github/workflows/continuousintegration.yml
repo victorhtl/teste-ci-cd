@@ -22,7 +22,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run Discord Webhook
-        uses: johnnyhuy/actions-discord-git-webhook@main
+      - name: Send Discord Message
+        uses: ehsanfox/discord.js-webhook
         with:
-          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
+          # Important/Required Data
+          id: ${{ secrets.DISCORD_WEBHOOK_ID }}
+          token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
