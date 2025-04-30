@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export function productRoutes(fastify) {
+export default function productRoutes(fastify) {
   fastify.get('/', async (request, reply) => {
     return { products: [{
       id: 1,
