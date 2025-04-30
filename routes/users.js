@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export function userRoutes(fastify) {
+export default function userRoutes(fastify) {
   fastify.get('/', async (request, reply) => {
     return { users: [{
       id: 1,
@@ -12,7 +12,7 @@ export function userRoutes(fastify) {
   })
 
   fastify.post('/', async (request, reply) => {
-    const validationResult = CreateUserInput.parse(request.body)
+    const validationResult = CreateUserInput.safeParse(request.body)
 
     if(!validationResult.success) {
       return reply.status(400).send({ error: validationResult.error })
@@ -23,5 +23,5 @@ export function userRoutes(fastify) {
 }
 
 const CreateUserInput = z.object({
-  name: z.string()
+  name: z.string().nonempty()
 }).strict()
