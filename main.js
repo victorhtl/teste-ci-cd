@@ -3,9 +3,7 @@ import userRoutes from './routes/users.js'
 import productRoutes from './routes/products.js'
 
 export const makeServer = () => {
-  const fastify = Fastify({
-    logger: true
-  })
+  const fastify = Fastify()
 
   fastify.get('/', function (request, reply) {
     return reply.send({ hello: 'world' })
