@@ -5,13 +5,15 @@
   "type": "module",
   "scripts": {
     "start": "node --watch server.js",
-    "test": "vitest"
+    "test": "vitest",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "eslint": "^9.25.1",
     "fastify": "^5.2.2",
     "vitest": "^3.1.2",
     "zod": "^3.24.3"
